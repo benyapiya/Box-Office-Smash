@@ -28,5 +28,3 @@ create table if not exists title_basics_movies_recent as
 update title_basics_movies_recent
 	set genres = NULL
 	where genres = '\N';
-
-select * from title_basics_movies_recent limit 500;
