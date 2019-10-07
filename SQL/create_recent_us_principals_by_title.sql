@@ -1,3 +1,6 @@
+--Script to filter title_principals table for recent US releases and de-normalize list of principals
+--Add principal names from name_basics table
+
 create temp table recent_us_principals as 
 	select title_principals.* 
 	from title_principals inner join title_basics_movies_us_recent on
@@ -33,3 +36,41 @@ left join recent_us_principals as t5 on (t5.ordering=5 and t.tconst=t5.tconst)
 left join recent_us_principals as t6 on (t6.ordering=6 and t.tconst=t6.tconst)
 left join recent_us_principals as t7 on (t7.ordering=7 and t.tconst=t7.tconst)
 left join recent_us_principals as t8 on (t8.ordering=8 and t.tconst=t8.tconst);
+
+create table recent_us_principals_names as
+select
+	t.tconst,
+	t.nconst1,
+	n1."primaryName" as name1,
+	t.category1,
+	t.nconst2,
+	n2."primaryName" as name2,
+	t.category2,
+	t.nconst3,
+	n3."primaryName" as name3,
+	t.category3,
+	t.nconst4,
+	n4."primaryName" as name4,
+	t.category4,
+	t.nconst5,
+	n5."primaryName" as name5,
+	t.category5,
+	t.nconst6,
+	n6."primaryName" as name6,
+	t.category6,
+	t.nconst7,
+	n7."primaryName" as name7,
+	t.category7,
+	t.nconst8,
+	n8."primaryName" as name8,
+	t.category8
+from recent_us_principals_by_title as t
+left join name_basics as n1 on t.nconst1=n1.nconst
+left join name_basics as n2 on t.nconst2=n2.nconst
+left join name_basics as n3 on t.nconst3=n3.nconst
+left join name_basics as n4 on t.nconst4=n4.nconst
+left join name_basics as n5 on t.nconst5=n5.nconst
+left join name_basics as n6 on t.nconst6=n6.nconst
+left join name_basics as n7 on t.nconst7=n7.nconst
+left join name_basics as n8 on t.nconst8=n8.nconst;
+	
