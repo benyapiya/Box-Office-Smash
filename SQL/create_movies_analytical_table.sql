@@ -8,7 +8,7 @@ select 	id,
 		t.primarytitle,
 		t.originaltitle,
 		t.region,
-		cast(t.isadult as integer),
+		cast(t.isadult as integer) as isadult,
 		t.startyear,
 		t.endyear,
 		t.runtimeminutes,
@@ -46,13 +46,13 @@ create table movies_analytical_table as
 select
 	a.*,
 	b.studio,
-	cast(replace(replace(b.lifetime_gross,'$',''),',','') as integer)
+	cast(replace(replace(b.lifetime_gross,'$',''),',','') as integer) as lifetime_gross
 from analytical_table as a
 left join box_office_mojo_title as b on a.primarytitle=b.title
 
 union select
 	a.*,
 	b.studio,
-	cast(replace(replace(b.lifetime_gross,'$',''),',','') as integer)
+	cast(replace(replace(b.lifetime_gross,'$',''),',','') as integer) as lifetime_gross
 from analytical_table as a
 left join box_office_mojo_title as b on a.originaltitle=b.title;
