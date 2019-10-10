@@ -46,13 +46,23 @@ create table movies_analytical_table as
 select
 	a.*,
 	b.studio,
-	cast(replace(replace(b.lifetime_gross,'$',''),',','') as integer) as lifetime_gross
+	c.releasedate,
+	cast(replace(replace(b.lifetime_gross,'$',''),',','') as bigint) as lifetime_gross,
+	cast(replace(replace(c.productionbudget,'$',''),',','') as bigint) as productionbudget,
+	cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) as domesticgross,
+	cast(replace(replace(c.worldwidegross,'$',''),',','') as bigint) as worldwidegross
 from analytical_table as a
 left join box_office_mojo_title as b on a.primarytitle=b.title
+left join title_rev_html as c on a.primarytitle=c.title
 
 union select
 	a.*,
 	b.studio,
-	cast(replace(replace(b.lifetime_gross,'$',''),',','') as integer) as lifetime_gross
+	c.releasedate,
+	cast(replace(replace(b.lifetime_gross,'$',''),',','') as bigint) as lifetime_gross,
+	cast(replace(replace(c.productionbudget,'$',''),',','') as bigint) as productionbudget,
+	cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) as domesticgross,
+	cast(replace(replace(c.worldwidegross,'$',''),',','') as bigint) as worldwidegross
 from analytical_table as a
-left join box_office_mojo_title as b on a.originaltitle=b.title;
+left join box_office_mojo_title as b on a.originaltitle=b.title
+left join title_rev_html as c on a.originaltitle=c.title;
