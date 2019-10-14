@@ -45,6 +45,7 @@ left join recent_us_principals_names as r on t.tconst=r.tconst;
 create table movies_analytical_table as
 select
 	a.*,
+	d.keywords,
 	b.studio,
 	c.releasedate,
 	cast(replace(replace(b.lifetime_gross,'$',''),',','') as bigint) as lifetime_gross,
@@ -54,9 +55,11 @@ select
 from analytical_table as a
 left join box_office_mojo_title as b on a.primarytitle=b.title
 left join title_rev_html as c on a.primarytitle=c.title
+left join title_dtls_html as d on a.primarytitle=d.title
 
 union select
 	a.*,
+	d.keywords,
 	b.studio,
 	c.releasedate,
 	cast(replace(replace(b.lifetime_gross,'$',''),',','') as bigint) as lifetime_gross,
@@ -65,4 +68,5 @@ union select
 	cast(replace(replace(c.worldwidegross,'$',''),',','') as bigint) as worldwidegross
 from analytical_table as a
 left join box_office_mojo_title as b on a.originaltitle=b.title
-left join title_rev_html as c on a.originaltitle=c.title;
+left join title_rev_html as c on a.originaltitle=c.title
+left join title_dtls_html as d on a.originaltitle=d.title;
