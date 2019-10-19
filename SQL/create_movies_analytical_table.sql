@@ -42,6 +42,8 @@ select 	id,
 from title_basics_movies_us_recent as t
 left join recent_us_principals_names as r on t.tconst=r.tconst;
 
+drop table movies_analytical_table;
+
 create table movies_analytical_table as
 select
 	a.*,
