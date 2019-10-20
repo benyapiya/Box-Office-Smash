@@ -2,7 +2,7 @@
 --Add principal names for each title
 --Add keywords and parse them into individual fields
 
-drop table analytical_table;
+drop table if exists analytical_table;
 create temp table analytical_table as
 select distinct
 		id,
@@ -45,8 +45,21 @@ select distinct
 from title_basics_movies_us_recent as t
 left join recent_us_principals_names as r on t.tconst=r.tconst;
 
-drop table movies_analytical_table;
+drop table if exists box_office_mojo_title_year;
+create temp table box_office_mojo_title_year as
+select *,
+		cast(left(year,4) as integer) as yearnum
+from box_office_mojo_title
+where year <> 'n/a';
 
+drop table if exists title_rev_html_year;
+create temp table title_rev_html_year as
+select *,
+		cast(right(releasedate,4) as integer) as releaseyear
+from title_rev_html
+where right(releasedate,4) <> 'nown' and releasedate is not null;
+
+drop table if exists movies_analytical_table;
 create table movies_analytical_table as
 select
 	a.*,
@@ -89,6 +102,6 @@ select
 	cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) as domesticgross,
 	cast(replace(replace(c.worldwidegross,'$',''),',','') as bigint) as worldwidegross
 from analytical_table as a
-left join box_office_mojo_title as b on a.primarytitle=b.title
-left join title_rev_html as c on a.primarytitle=c.title
-left join title_dtls_html as d on a.primarytitle=d.title;
+left join box_office_mojo_title_year as b on a.primarytitle=b.title and a.startyear=b.yearnum
+left join title_rev_html_year as c on a.primarytitle=c.title and a.startyear=c.releaseyear
+left join title_dtls_html as d on c.id=d.id;
