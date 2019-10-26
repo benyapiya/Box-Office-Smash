@@ -2,6 +2,8 @@
 --Add principal names for each title
 --Add keywords and parse them into individual fields
 
+--create extension fuzzystrmatch;
+
 drop table if exists analytical_table;
 create temp table analytical_table as
 select distinct
@@ -63,6 +65,8 @@ drop table if exists movies_analytical_table;
 create table movies_analytical_table as
 select
 	a.*,
+	b.title as mojo_title,
+	c.title as numbers_title,
 	d.keywords,
 	split_part(d.keywords,',',1) as keyword1,
 	split_part(d.keywords,',',2) as keyword2,
@@ -102,6 +106,6 @@ select
 	cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) as domesticgross,
 	cast(replace(replace(c.worldwidegross,'$',''),',','') as bigint) as worldwidegross
 from analytical_table as a
-left join box_office_mojo_title_year as b on a.primarytitle=b.title and a.startyear=b.yearnum
-left join title_rev_html_year as c on a.primarytitle=c.title and a.startyear=c.releaseyear
+left join box_office_mojo_title_year as b on slugify(a.primarytitle) = slugify(b.title) and a.startyear=b.yearnum
+left join title_rev_html_year as c on slugify(a.primarytitle) = slugify(c.title) and a.startyear=c.releaseyear
 left join title_dtls_html as d on c.id=d.id;
