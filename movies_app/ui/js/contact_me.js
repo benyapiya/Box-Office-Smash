@@ -29,7 +29,6 @@ $(function() {
         data: {
           movie_name: movie_name,
           movie_actor: movie_actor,
-          movie_name: movie_name,
           movie_desc: movie_desc,
           movie_genre: movie_genre,
           movie_studio: movie_studio,
@@ -50,7 +49,7 @@ $(function() {
           $('#success > .alert-success')
             .append('</div>');
           //clear all fields
-          $('#contactForm').trigger("reset");
+          //$('#contactForm').trigger("reset");
         },
         error: function() {
           // Fail message
