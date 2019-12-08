@@ -35,8 +35,35 @@ alter table title_basics_movies_us
 	alter column endyear type integer using endyear::integer,
 	alter column runtimeminutes type integer using runtimeminutes::integer;
 
+drop table if exists remove_dups;
+create temp table remove_dups as
+select distinct 
+	titletype,
+	primarytitle,
+	originaltitle,
+	isadult,
+	startyear,
+	endyear,
+	runtimeminutes,
+	genres,
+	region,
+	max(id) as id
+from title_basics_movies_us
+group by
+	titletype,
+	primarytitle,
+	originaltitle,
+	isadult,
+	startyear,
+	endyear,
+	runtimeminutes,
+	genres,
+	region;
+
 drop table if exists title_basics_movies_us_recent;
 create table if not exists title_basics_movies_us_recent as
-	select distinct * 
-	from title_basics_movies_us
-	where startyear > 1999;
+	select distinct a.* 
+	from title_basics_movies_us as a
+	inner join remove_dups as b
+	on a.id=b.id
+	where a.startyear > 1999;
