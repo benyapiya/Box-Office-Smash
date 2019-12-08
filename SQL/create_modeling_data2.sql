@@ -100,15 +100,33 @@ drop table if exists title_rev_html_year;
 create temp table title_rev_html_year as
 select *,
 		cast(right(releasedate,4) as integer) as releaseyear
-from title_rev_html
+from title_rev_html1
 where right(releasedate,4) <> 'nown' and releasedate is not null;
 
 drop table if exists modeling_data2;
 create table modeling_data2 as
 select
 	a.primarytitle,
-	a.startyear,
+	cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) as domesticgross,
+	cast(replace(replace(c.productionbudget,'$',''),',','') as bigint) as productionbudget,
 	a.runtimeminutes,
+	to_date(c.releasedate, 'Mon DD, YYYY') as releasedate,
+	case 
+		when left(d.rating,1) = 'G' then 1
+		else 0
+	end as G_rating,
+	case 
+		when left(d.rating,2) = 'PG' and left(d.rating,5) <> 'PG-13' then 1
+		else 0
+	end as PG_rating,
+	case 
+		when left(d.rating,5) = 'PG-13' then 1
+		else 0
+	end as PG13_rating,
+	case 
+		when left(d.rating,1) = 'R' then 1
+		else 0
+	end as R_rating,
 	a.action,
 	a.comedy,
 	a.drama,
@@ -473,12 +491,9 @@ select
 	case
 		when b.studio = 'Par.' then 1
 		else 0
-	end as paramount,
-	c.releasedate,
-	cast(replace(replace(c.productionbudget,'$',''),',','') as bigint) as productionbudget,
-	cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) as domesticgross
+	end as paramount
 from analytical_table as a
 left join box_office_mojo_title_year as b on slugify(a.primarytitle) = slugify(b.title) and a.startyear=b.yearnum
 left join title_rev_html_year as c on slugify(a.primarytitle) = slugify(c.title) and a.startyear=c.releaseyear
-left join title_dtls_html as d on c.title=d.title
-where c.domesticgross is not null;
+left join title_dtls_html as d on c.id=d.id
+where c.domesticgross is not null and cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) <> 0;
