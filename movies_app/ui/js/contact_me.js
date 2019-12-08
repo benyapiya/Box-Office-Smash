@@ -8,25 +8,32 @@ $(function() {
     submitSuccess: function($form, event) {
       event.preventDefault(); // prevent default submit behaviour
       // get values from FORM
-      var name = $("input#name").val();
-      var email = $("input#email").val();
-      var phone = $("input#phone").val();
-      var message = $("textarea#message").val();
+      var movie_name = $("input#movie_name").val();
+      var movie_actor = $("input#movie_actor").val();
+      var movie_desc = $("input#movie_desc").val();
+      var movie_genre = $("input#movie_genre").val();
+      var movie_studio = $("input#movie_studio").val();
       var firstName = name; // For Success/Failure Message
       // Check for white space in name for Success/Fail message
-      if (firstName.indexOf(' ') >= 0) {
-        firstName = name.split(' ').slice(0, -1).join(' ');
-      }
+      //if (firstName.indexOf(' ') >= 0) {
+      //  firstName = name.split(' ').slice(0, -1).join(' ');
+      //}
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
       $.ajax({
-        url: "././mail/contact_me.php",
+        url: "http://ec2-34-238-50-190.compute-1.amazonaws.com:5000/exec_ml",
         type: "POST",
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
         data: {
-          name: name,
-          phone: phone,
-          email: email,
-          message: message
+          input: movie_name,
+          movie_name: movie_name,
+          movie_actor: movie_actor,
+          movie_name: movie_name,
+          movie_desc: movie_desc,
+          movie_genre: movie_genre,
+          movie_studio: movie_studio,
         },
         cache: false,
         success: function() {
