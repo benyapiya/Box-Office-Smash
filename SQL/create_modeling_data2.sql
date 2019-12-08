@@ -110,7 +110,8 @@ select
 	cast(replace(replace(c.domesticgross,'$',''),',','') as bigint) as domesticgross,
 	cast(replace(replace(c.productionbudget,'$',''),',','') as bigint) as productionbudget,
 	a.runtimeminutes,
-	to_date(c.releasedate, 'Mon DD, YYYY') as releasedate,
+	cast(date_part('year', to_date(c.releasedate, 'Mon DD, YYYY')) as integer) as release_year,
+	cast(date_part('week', to_date(c.releasedate, 'Mon DD, YYYY')) as integer) as release_week,
 	case 
 		when left(d.rating,1) = 'G' then 1
 		else 0
