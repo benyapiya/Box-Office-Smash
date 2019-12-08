@@ -1,0 +1,29 @@
+.masthead {
+  padding-top: calc(1rem + 74px);
+  padding-bottom: 1rem;
+  .masthead-heading {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  .masthead-subheading {
+    font-size: 1rem;
+  }
+  .masthead-avatar {
+    width: 1rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .masthead {
+    padding-top: calc(1rem + 104px);
+    padding-bottom: 1rem;
+    .-heading {
+      font-size: 1em;
+      line-height: 1rem;
+    }
+    .masthead-subheading {
+      font-size: 1rem;
+    }
+
+  }
+}
