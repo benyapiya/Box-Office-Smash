@@ -226,37 +226,461 @@
         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
         <form name="sentMessage" id="contactForm" novalidate="novalidate">
           <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Movie Name</label>
-              <input class="form-control" id="movie_name" type="text" placeholder="Movie Name" required="required" data-validation-required-message="Please enter your name.">
+            <div class="">
+              <label>Production Budget</label>
+              <select class="form-control" id="production_budget" name="{{widget_for}}">
+                <option value="1000000">1M</option>
+                <option value="10000000">10M</option>
+                <option value="20000000">20M</option>
+                <option value="30000000">30M</option>
+                <option value="40000000">40M</option>
+                <option value="50000000">50M</option>
+                <option value="60000000">60M</option>
+                <option value="70000000">70M</option>
+                <option value="80000000">80M</option>
+                <option value="90000000">90M</option>
+                <option value="100000000">100M</option>
+              </select>
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Lead Actor</label>
-              <input class="form-control" id="movie_actor" type="text" placeholder="Lead Actor" required="required" data-validation-required-message="Please enter your email address.">
+            <div class="">
+              <label>Run time (Minutes)</label>
+              <select class="form-control" width="25%" id="runtimemins" name="{{widget_for}}">
+                <option value="60">60</option>
+                <option value="90">90</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+                <option value="180">180</option>
+                <option value="210">210</option>
+              </select>
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Movie Description</label>
-              <input class="form-control" id="movie_desc" type="text" placeholder="Movie Description" required="required" data-validation-required-message="Please enter your phone number.">
+            <div class="">
+              <label>Release Year</label>
+              <select class="form-control" width="25%" id="release_year" name="{{widget_for}}">
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2018">2019</option>
+              </select>
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+            <div class="">
+              <label>Release Week</label>
+              <select class="form-control" width="25%" id="release_week" name="{{widget_for}}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+              </select>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="">
+              <label>Movie Rating</label>
+              <select class="form-control" width="25%" id="rating" name="{{widget_for}}">
+                <option value="100">G</option>
+                <option value="010">PG</option>
+                <option value="001">PG-13</option>
+              </select>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
               <label>Genre</label>
-              <input class="form-control" id="movie_genre" type="text" rows="5" placeholder="Genre" required="required" data-validation-required-message="Please enter a message."></textarea>
+              <div class="form-control">
+                <select class="" style="width: 22%;" id="genre_1" name="{{widget_for}}">
+                    <option value="0">Action</option>
+                    <option value="1">Comedy</option>
+                    <option value="2">Drama</option>
+                    <option value="3">Adventure</option>
+                    <option value="4">Biography</option>
+                    <option value="5">Horror</option>
+                    <option value="6">Crime</option>
+                    <option value="7">Documentary</option>
+                    <option value="8">Animation</option>
+                    <option value="9">Romance</option>
+                    <option value="10">Mystery</option>
+                    <option value="11">Thriller</option>
+                    <option value="12">Scifi</option>
+                    <option value="13">Fantasy</option>
+                    <option value="14">Family</option>
+                    <option value="15">Threed</option>
+                    <option value="16">Animallead</option>
+                    <option value="17">Dysfunctionalfamily</option>
+                    <option value="18">Africanamerican</option>
+                    <option value="19">Marvelcomics</option>
+                    <option value="20">Religious</option>
+                    <option value="21">Talkinganimals</option>
+                    <option value="22">Visualeffects</option>
+                    <option value="23">Revenge</option>
+                </select>
+                <select class="" style="width: 22%;" id="genre_2" name="{{widget_for}}">
+                    <option value="0">Action</option>
+                    <option value="1">Comedy</option>
+                    <option value="2">Drama</option>
+                    <option value="3">Adventure</option>
+                    <option value="4">Biography</option>
+                    <option value="5">Horror</option>
+                    <option value="6">Crime</option>
+                    <option value="7">Documentary</option>
+                    <option value="8">Animation</option>
+                    <option value="9">Romance</option>
+                    <option value="10">Mystery</option>
+                    <option value="11">Thriller</option>
+                    <option value="12">Scifi</option>
+                    <option value="13">Fantasy</option>
+                    <option value="14">Family</option>
+                    <option value="15">Threed</option>
+                    <option value="16">Animallead</option>
+                    <option value="17">Dysfunctionalfamily</option>
+                    <option value="18">Africanamerican</option>
+                    <option value="19">Marvelcomics</option>
+                    <option value="20">Religious</option>
+                    <option value="21">Talkinganimals</option>
+                    <option value="22">Visualeffects</option>
+                    <option value="23">Revenge</option>
+                </select>
+              <select class="" style="width: 22%;" id="genre_3" name="{{widget_for}}">
+                  <option value="0">Action</option>
+                  <option value="1">Comedy</option>
+                  <option value="2">Drama</option>
+                  <option value="3">Adventure</option>
+                  <option value="4">Biography</option>
+                  <option value="5">Horror</option>
+                  <option value="6">Crime</option>
+                  <option value="7">Documentary</option>
+                  <option value="8">Animation</option>
+                  <option value="9">Romance</option>
+                  <option value="10">Mystery</option>
+                  <option value="11">Thriller</option>
+                  <option value="12">Scifi</option>
+                  <option value="13">Fantasy</option>
+                  <option value="14">Family</option>
+                  <option value="15">Threed</option>
+                  <option value="16">Animallead</option>
+                  <option value="17">Dysfunctionalfamily</option>
+                  <option value="18">Africanamerican</option>
+                  <option value="19">Marvelcomics</option>
+                  <option value="20">Religious</option>
+                  <option value="21">Talkinganimals</option>
+                  <option value="22">Visualeffects</option>
+                  <option value="23">Revenge</option>
+              </select>
+              <select class="" style="width: 22%;" id="genre_4" name="{{widget_for}}">
+                  <option value="0">Action</option>
+                  <option value="1">Comedy</option>
+                  <option value="2">Drama</option>
+                  <option value="3">Adventure</option>
+                  <option value="4">Biography</option>
+                  <option value="5">Horror</option>
+                  <option value="6">Crime</option>
+                  <option value="7">Documentary</option>
+                  <option value="8">Animation</option>
+                  <option value="9">Romance</option>
+                  <option value="10">Mystery</option>
+                  <option value="11">Thriller</option>
+                  <option value="12">Scifi</option>
+                  <option value="13">Fantasy</option>
+                  <option value="14">Family</option>
+                  <option value="15">Threed</option>
+                  <option value="16">Animallead</option>
+                  <option value="17">Dysfunctionalfamily</option>
+                  <option value="18">Africanamerican</option>
+                  <option value="19">Marvelcomics</option>
+                  <option value="20">Religious</option>
+                  <option value="21">Talkinganimals</option>
+                  <option value="22">Visualeffects</option>
+                  <option value="23">Revenge</option>
+              </select>
+            </div>
+            <p class="help-block text-danger"></p>
+          </div>
+          <div class="control-group">
+            <label>Lead Actors/Actresses</label>
+            <div class="form-control">
+                  <select class="" style="width: 22%;" id="actor_1" name="{{widget_for}}">
+                      <option value="0">Matt Damon</option>
+                      <option value="1">Nicolas Cage</option>
+                      <option value="2">Owen Wilson</option>
+                      <option value="3">Samuel L Jackson</option>
+                      <option value="4">Mark Wahlberg</option>
+                      <option value="5">Adam Sandler</option>
+                      <option value="6">Denzel Washington</option>
+                      <option value="7">Dwayne Johnson</option>
+                      <option value="8">Gerard Butler</option>
+                      <option value="9">George Clooney</option>
+                      <option value="10">Ben Stiller</option>
+                      <option value="11">Robert De Niro</option>
+                      <option value="12">Bruce Willis</option>
+                      <option value="13">Will Smith</option>
+                      <option value="14">Ben Affleck</option>
+                      <option value="15">Will Ferrell</option>
+                      <option value="16">Tom Hanks</option>
+                      <option value="17">Tom Cruise</option>
+                      <option value="18">Keanu Reeves</option>
+                      <option value="19">Leonardo Dicaprio</option>
+                      <option value="20">Jake Gyllenhaal</option>
+                      <option value="21">Steve Carell</option>
+                      <option value="22">Johnny Depp</option>
+                      <option value="23">Matthew Mcconaughey</option>
+                      <option value="24">Jason Statham</option>
+                      <option value="25">Vin Diesel</option>
+                      <option value="26">Robert Downey Jr</option>
+                      <option value="27">Christian Bale</option>
+                      <option value="28">Reese Witherspoon</option>
+                      <option value="29">Russell Crowe</option>
+                      <option value="30">Ice Cube</option>
+                      <option value="31">Sandra Bullock</option>
+                      <option value="32">Jackie Chan</option>
+                      <option value="33">Cate Blanchett</option>
+                      <option value="34">Brad Pitt</option>
+                      <option value="35">John Goodman</option>
+                      <option value="36">Channing Tatum</option>
+                      <option value="37">Jim Carrey</option>
+                      <option value="38">Jack Black</option>
+                      <option value="39">Colin Farrell</option>
+                      <option value="40">Hugh Jackman</option>
+                  </select>
+
+                  <select class="" style="width: 22%;" id="actor_2" name="{{widget_for}}">
+                      <option value="0">Matt Damon</option>
+                      <option value="1">Nicolas Cage</option>
+                      <option value="2">Owen Wilson</option>
+                      <option value="3">Samuel L Jackson</option>
+                      <option value="4">Mark Wahlberg</option>
+                      <option value="5">Adam Sandler</option>
+                      <option value="6">Denzel Washington</option>
+                      <option value="7">Dwayne Johnson</option>
+                      <option value="8">Gerard Butler</option>
+                      <option value="9">George Clooney</option>
+                      <option value="10">Ben Stiller</option>
+                      <option value="11">Robert De Niro</option>
+                      <option value="12">Bruce Willis</option>
+                      <option value="13">Will Smith</option>
+                      <option value="14">Ben Affleck</option>
+                      <option value="15">Will Ferrell</option>
+                      <option value="16">Tom Hanks</option>
+                      <option value="17">Tom Cruise</option>
+                      <option value="18">Keanu Reeves</option>
+                      <option value="19">Leonardo Dicaprio</option>
+                      <option value="20">Jake Gyllenhaal</option>
+                      <option value="21">Steve Carell</option>
+                      <option value="22">Johnny Depp</option>
+                      <option value="23">Matthew Mcconaughey</option>
+                      <option value="24">Jason Statham</option>
+                      <option value="25">Vin Diesel</option>
+                      <option value="26">Robert Downey Jr</option>
+                      <option value="27">Christian Bale</option>
+                      <option value="28">Reese Witherspoon</option>
+                      <option value="29">Russell Crowe</option>
+                      <option value="30">Ice Cube</option>
+                      <option value="31">Sandra Bullock</option>
+                      <option value="32">Jackie Chan</option>
+                      <option value="33">Cate Blanchett</option>
+                      <option value="34">Brad Pitt</option>
+                      <option value="35">John Goodman</option>
+                      <option value="36">Channing Tatum</option>
+                      <option value="37">Jim Carrey</option>
+                      <option value="38">Jack Black</option>
+                      <option value="39">Colin Farrell</option>
+                      <option value="40">Hugh Jackman</option>
+                  </select>
+
+                <select class="" style="width: 22%;" id="actor_3" name="{{widget_for}}">
+                    <option value="0">Matt Damon</option>
+                    <option value="1">Nicolas Cage</option>
+                    <option value="2">Owen Wilson</option>
+                    <option value="3">Samuel L Jackson</option>
+                    <option value="4">Mark Wahlberg</option>
+                    <option value="5">Adam Sandler</option>
+                    <option value="6">Denzel Washington</option>
+                    <option value="7">Dwayne Johnson</option>
+                    <option value="8">Gerard Butler</option>
+                    <option value="9">George Clooney</option>
+                    <option value="10">Ben Stiller</option>
+                    <option value="11">Robert De Niro</option>
+                    <option value="12">Bruce Willis</option>
+                    <option value="13">Will Smith</option>
+                    <option value="14">Ben Affleck</option>
+                    <option value="15">Will Ferrell</option>
+                    <option value="16">Tom Hanks</option>
+                    <option value="17">Tom Cruise</option>
+                    <option value="18">Keanu Reeves</option>
+                    <option value="19">Leonardo Dicaprio</option>
+                    <option value="20">Jake Gyllenhaal</option>
+                    <option value="21">Steve Carell</option>
+                    <option value="22">Johnny Depp</option>
+                    <option value="23">Matthew Mcconaughey</option>
+                    <option value="24">Jason Statham</option>
+                    <option value="25">Vin Diesel</option>
+                    <option value="26">Robert Downey Jr</option>
+                    <option value="27">Christian Bale</option>
+                    <option value="28">Reese Witherspoon</option>
+                    <option value="29">Russell Crowe</option>
+                    <option value="30">Ice Cube</option>
+                    <option value="31">Sandra Bullock</option>
+                    <option value="32">Jackie Chan</option>
+                    <option value="33">Cate Blanchett</option>
+                    <option value="34">Brad Pitt</option>
+                    <option value="35">John Goodman</option>
+                    <option value="36">Channing Tatum</option>
+                    <option value="37">Jim Carrey</option>
+                    <option value="38">Jack Black</option>
+                    <option value="39">Colin Farrell</option>
+                    <option value="40">Hugh Jackman</option>
+                </select>
+                <select class="" style="width: 22%;" id="actor_4" name="{{widget_for}}">
+                    <option value="0">Matt Damon</option>
+                    <option value="1">Nicolas Cage</option>
+                    <option value="2">Owen Wilson</option>
+                    <option value="3">Samuel L Jackson</option>
+                    <option value="4">Mark Wahlberg</option>
+                    <option value="5">Adam Sandler</option>
+                    <option value="6">Denzel Washington</option>
+                    <option value="7">Dwayne Johnson</option>
+                    <option value="8">Gerard Butler</option>
+                    <option value="9">George Clooney</option>
+                    <option value="10">Ben Stiller</option>
+                    <option value="11">Robert De Niro</option>
+                    <option value="12">Bruce Willis</option>
+                    <option value="13">Will Smith</option>
+                    <option value="14">Ben Affleck</option>
+                    <option value="15">Will Ferrell</option>
+                    <option value="16">Tom Hanks</option>
+                    <option value="17">Tom Cruise</option>
+                    <option value="18">Keanu Reeves</option>
+                    <option value="19">Leonardo Dicaprio</option>
+                    <option value="20">Jake Gyllenhaal</option>
+                    <option value="21">Steve Carell</option>
+                    <option value="22">Johnny Depp</option>
+                    <option value="23">Matthew Mcconaughey</option>
+                    <option value="24">Jason Statham</option>
+                    <option value="25">Vin Diesel</option>
+                    <option value="26">Robert Downey Jr</option>
+                    <option value="27">Christian Bale</option>
+                    <option value="28">Reese Witherspoon</option>
+                    <option value="29">Russell Crowe</option>
+                    <option value="30">Ice Cube</option>
+                    <option value="31">Sandra Bullock</option>
+                    <option value="32">Jackie Chan</option>
+                    <option value="33">Cate Blanchett</option>
+                    <option value="34">Brad Pitt</option>
+                    <option value="35">John Goodman</option>
+                    <option value="36">Channing Tatum</option>
+                    <option value="37">Jim Carrey</option>
+                    <option value="38">Jack Black</option>
+                    <option value="39">Colin Farrell</option>
+                    <option value="40">Hugh Jackman</option>
+                </select>
+
+            </div>
+            <p class="help-block text-danger"></p>
+          </div>
+          <div class="control-group">
+            <div class="">
+              <label>Director</label>
+              <select class="form-control" width="25%" id="director" name="{{widget_for}}">
+                  <option value="100000000000000">Stephen Soderbergh</option>
+                  <option value="010000000000000">Ridley Scott</option>
+                  <option value="001000000000000">Steven Spielberg</option>
+                  <option value="000100000000000">Ron Howard</option>
+                  <option value="000010000000000">Tim Burton</option>
+                  <option value="000001000000000">Clint Eastwood</option>
+                  <option value="000000100000000">Shawn Levy</option>
+                  <option value="000000010000000">Michael Bay</option>
+                  <option value="000000001000000">M Night Shyamalan</option>
+                  <option value="000000000100000">Martin Scorsese</option>
+                  <option value="000000000010000">Peter Jackson</option>
+                  <option value="000000000001000">Guy Ritchie</option>
+                  <option value="000000000000100">David Gordon Green</option>
+                  <option value="000000000000010">Christopher Nolan</option>
+                  <option value="000000000000001">Todd Phillips</option>
+              </select>
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Studio</label>
-              <input class="form-control" id="movie_studio" type="text" rows="5" placeholder="Studio" required="required" data-validation-required-message="Please enter a message."></textarea>
+              <select class="form-control" width="25%" id="studio" name="{{widget_for}}">
+                  <option value="100000">Warner Bros</option>
+                  <option value="010000">Universal</option>
+                  <option value="001000">Fox</option>
+                  <option value="000100">Buena Vista</option>
+                  <option value="000010">Sony</option>
+                  <option value="000001">Paramount</option>
+              </select>
               <p class="help-block text-danger"></p>
             </div>
           </div>
