@@ -8,21 +8,21 @@ $(function() {
     submitSuccess: function($form, event) {
       event.preventDefault(); // prevent default submit behaviour
       // get values from FORM
-      var production_budget = $("input#production_budget").val();
-      var runtimemins = $("input#runtimemins").val();
-      var release_year = $("input#release_year").val();
-      var release_week = $("input#release_week").val();
-      var rating = $("input#rating").val();
-      var genre_1 = $("input#genre_1").val();
-      var genre_2 = $("input#genre_2").val();
-      var genre_3 = $("input#genre_3").val();
-      var genre_4 = $("input#genre_4").val();
-      var actor_1 = $("input#actor_1").val();
-      var actor_2 = $("input#actor_2").val();
-      var actor_3 = $("input#actor_3").val();
-      var actor_4 = $("input#actor_4").val();
-      var studio = $("input#studio").val();
-      var director = $("input#director").val();
+      var production_budget = $("select#production_budget").val();
+      var runtimemins = $("select#runtimemins").val();
+      var release_year = $("select#release_year").val();
+      var release_week = $("select#release_week").val();
+      var rating = $("select#rating").val();
+      var genre_1 = $("select#genre_1").val();
+      var genre_2 = $("select#genre_2").val();
+      var genre_3 = $("select#genre_3").val();
+      var genre_4 = $("select#genre_4").val();
+      var actor_1 = $("select#actor_1").val();
+      var actor_2 = $("select#actor_2").val();
+      var actor_3 = $("select#actor_3").val();
+      var actor_4 = $("select#actor_4").val();
+      var studio = $("select#studio").val();
+      var director = $("select#director").val();
 
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
