@@ -1,5 +1,5 @@
 from textblob import TextBlob
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from sklearn import model_selection
 from sklearn.linear_model import LogisticRegression
@@ -30,6 +30,11 @@ else:
     from io import StringIO
 
 from bitarray import bitarray
+
+from bokeh.embed import components
+from bokeh.plotting import figure
+from bokeh.resources import INLINE
+from bokeh.util.string import encode_utf8
 
 app = Flask(__name__)
 CORS(app)
@@ -93,6 +98,35 @@ def load_model(fileio_input):
     loaded_model = joblib.load(filename)
     result = loaded_model.predict(df)
     return str(f'{round(result[0]):,}')
+
+@app.route('/bokeh')
+def bokeh():
+
+    # init a basic bar chart:
+    # http://bokeh.pydata.org/en/latest/docs/user_guide/plotting.html#bars
+    fig = figure(plot_width=600, plot_height=600)
+    fig.vbar(
+        x=[1, 2, 3, 4],
+        width=0.5,
+        bottom=0,
+        top=[1.7, 2.2, 4.6, 3.9],
+        color='navy'
+    )
+
+    # grab the static resources
+    js_resources = INLINE.render_js()
+    css_resources = INLINE.render_css()
+
+    # render template
+    script, div = components(fig)
+    html = render_template(
+        'bokeh.html',
+        plot_script=script,
+        plot_div=div,
+        js_resources=js_resources,
+        css_resources=css_resources,
+    )
+    return encode_utf8(html)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
