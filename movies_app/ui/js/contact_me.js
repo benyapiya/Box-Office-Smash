@@ -8,16 +8,22 @@ $(function() {
     submitSuccess: function($form, event) {
       event.preventDefault(); // prevent default submit behaviour
       // get values from FORM
-      var movie_name = $("input#movie_name").val();
-      var movie_actor = $("input#movie_actor").val();
-      var movie_desc = $("input#movie_desc").val();
-      var movie_genre = $("input#movie_genre").val();
-      var movie_studio = $("input#movie_studio").val();
-      var firstName = name; // For Success/Failure Message
-      // Check for white space in name for Success/Fail message
-      //if (firstName.indexOf(' ') >= 0) {
-      //  firstName = name.split(' ').slice(0, -1).join(' ');
-      //}
+      var production_budget = $("input#production_budget").val();
+      var runtimemins = $("input#runtimemins").val();
+      var release_year = $("input#release_year").val();
+      var release_week = $("input#release_week").val();
+      var rating = $("input#rating").val();
+      var genre_1 = $("input#genre_1").val();
+      var genre_2 = $("input#genre_2").val();
+      var genre_3 = $("input#genre_3").val();
+      var genre_4 = $("input#genre_4").val();
+      var actor_1 = $("input#actor_1").val();
+      var actor_2 = $("input#actor_2").val();
+      var actor_3 = $("input#actor_3").val();
+      var actor_4 = $("input#actor_4").val();
+      var studio = $("input#studio").val();
+      var director = $("input#director").val();
+
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
       $.ajax({
@@ -27,11 +33,21 @@ $(function() {
           'Access-Control-Allow-Origin': '*'
         },
         data: {
-          movie_name: movie_name,
-          movie_actor: movie_actor,
-          movie_desc: movie_desc,
-          movie_genre: movie_genre,
-          movie_studio: movie_studio,
+          production_budget: production_budget,
+          runtimemins: runtimemins,
+          release_year: release_year,
+          release_week: release_week,
+          rating: rating,
+          genre_1: genre_1,
+          genre_2: genre_2,
+          genre_3: genre_3,
+          genre_4: genre_4,
+          actor_1: actor_1,
+          actor_2: actor_2,
+          actor_3: actor_3,
+          actor_4: actor_4,
+          studio: studio,
+          director: director,
         },
         cache: false,
         success: function(data) {
