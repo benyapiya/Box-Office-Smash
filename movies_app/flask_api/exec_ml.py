@@ -55,12 +55,14 @@ def exec_ml():
     genre = addSemicolon(set_bit(24, genre_1, genre_2, genre_3, genre_4))
     actor = addSemicolon(set_bit(41, actor_1, actor_2, actor_3, actor_4))
 
-    input_str = production_budget+";"+runtimemins+";"+release_year+";"+release_week+";"+rating+";"+genre+";"+actor+";"+director+";"+studio
+    input_str = production_budget+";"+runtimemins+";"+release_year+";"+release_week+";"+rating+";"+genre+";1;"+actor+";"+director+";"+studio
 
-    INPUTDATA = StringIO.StringIO()
+    INPUTDATA = StringIO()
     INPUTDATA.write('productionbudget;runtimeminutes;release_year;release_week;g_rating;pg_rating;pg13_rating;r_rating;action;comedy;drama;adventure;biography;horror;crime;documentary;animation;romance;mystery;thriller;scifi;fantasy;family;threed;animallead;dysfunctionalfamily;africanamerican;marvelcomics;religious;talkinganimals;visualeffects;revenge;male_lead;matt_damon;nicolas_cage;owen_wilson;samuel_l_jackson;mark_wahlberg;adam_sandler;denzel_washington;dwayne_johnson;gerard_butler;george_clooney;ben_stiller;robert_de_niro;bruce_willis;will_smith;ben_affleck;will_ferrell;tom_hanks;tom_cruise;keanu_reeves;leonardo_dicaprio;jake_gyllenhaal;steve_carell;johnny_depp;matthew_mcconaughey;jason_statham;vin_diesel;robert_downey_jr;christian_bale;reese_witherspoon;russell_crowe;ice_cube;sandra_bullock;jackie_chan;cate_blanchett;brad_pitt;john_goodman;channing_tatum;jim_carrey;jack_black;colin_farrell;hugh_jackman;stephen_soderbergh;ridley_scott;steven_spielberg;ron_howard;tim_burton;clint_eastwood;shawn_levy;michael_bay;m_night_shyamalan;martin_scorsese;peter_jackson;guy_ritchie;david_gordon_green;christopher_nolan;todd_phillips;warner_bros;universal;fox;buena_vista;sony;paramount\n')
     INPUTDATA.write(input_str+'\n')
-
+    print("DEBUG MESSAGE: ")
+    print(INPUTDATA.getvalue())
+    INPUTDATA.seek(0)
     return load_model(INPUTDATA)
 
 def set_bit(num_bit, val_1, val_2, val_3, val_4):
@@ -90,7 +92,7 @@ def load_model(fileio_input):
     # load the model from disk
     loaded_model = joblib.load(filename)
     result = loaded_model.predict(df)
-    return result
+    return str(f'{round(result[0]):,}')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
